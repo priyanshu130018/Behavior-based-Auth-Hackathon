@@ -1,424 +1,741 @@
-# Behavior Based Continuous Authentication System
-## 🛡️ Advanced Behavioral Authentication System
+🛡️ Behavior Based Continuous Authentication
 
-A sophisticated real-time continuous authentication system using behavioral biometrics, powered by machine learning and designed with modern web technologies.
+A real-time behavioral authentication system that continuously verifies a user's identity through typing patterns, mouse behavior, and machine learning.
 
-![image]()
+📖 Overview
 
-![image]()
+Traditional authentication usually checks a user only when they log in.
 
-![image](h7)
+This project adds a second layer of security by continuously analyzing how a user interacts with the system during an active session.
 
-## 🌟 Features
+The application combines:
 
-### 🔐 Core Security Features
-- **Continuous Authentication** - Real-time user verification throughout active sessions
-- **Behavioral Biometrics** - Keystroke dynamics and mouse behavior analysis
-- **Multi-Model ML Ensemble** - GRU, Autoencoder, One-Class SVM, k-NN, Passive-Aggressive, and Isolation Forest
-- **Drift Detection** - Adaptive learning that handles behavioral changes over time
-- **Anomaly Detection** - Real-time identification of suspicious activities
-- **Session Management** - Secure session handling with automatic cleanup
+Keystroke dynamics
 
-### 🧠 Machine Learning Models
-- **GRU (Gated Recurrent Unit)** - Sequential pattern analysis
-- **Autoencoder** - Anomaly detection through reconstruction loss
-- **One-Class SVM** - Outlier detection for genuine user patterns
-- **Incremental k-NN** - Adaptive classification with sliding windows
-- **Passive-Aggressive Classifier** - Online learning for real-time updates
-- **Isolation Forest** - Anomaly detection for rare behavioral patterns
+Mouse behavior
 
-### 🎨 Modern UI/UX
-- **Dark Theme Design** - Professional cybersecurity aesthetic
-- **Responsive Layout** - Mobile-friendly adaptive interface
-- **Real-time Monitoring** - Live behavioral analytics dashboard
-- **Interactive Calibration** - Engaging setup process with visual feedback
-- **Animated Components** - Smooth transitions and micro-interactions
+Machine learning
 
-## 🏗️ Architecture
+Anomaly detection
 
-```
-continuous-auth-backend/
-├── app.py                          # Main Flask application
-├── config.py                       # Configuration settings
-├── requirements.txt                # Python dependencies
+Behavioral drift detection
+
+Real-time monitoring
+
+Session management
+
+The goal is to detect when the current behavior no longer matches the user's established behavioral profile.
+
+✨ Features
+
+🔐 Authentication
+
+User registration and login
+
+Password validation
+
+Session management
+
+Continuous authentication
+
+Behavioral verification
+
+⌨️ Keystroke Analysis
+
+The system analyzes patterns such as:
+
+Key hold time
+
+Key-to-key flight time
+
+Typing speed
+
+Rhythm and consistency
+
+Typing variation
+
+Digraph and trigraph timing
+
+Error and pause patterns
+
+🖱️ Mouse Analysis
+
+The system analyzes:
+
+Mouse movement
+
+Velocity
+
+Acceleration
+
+Movement smoothness
+
+Click timing
+
+Navigation patterns
+
+Target precision
+
+Scroll behavior
+
+🧠 Machine Learning
+
+The project uses multiple models to evaluate behavioral patterns:
+
+GRU
+
+Autoencoder
+
+One-Class SVM
+
+Incremental k-NN
+
+Passive-Aggressive Classifier
+
+Isolation Forest
+
+The models are combined to improve anomaly detection and behavioral verification.
+
+📊 Monitoring
+
+The dashboard provides:
+
+Authentication status
+
+Behavioral scores
+
+Activity information
+
+Security alerts
+
+Behavioral analytics
+
+Drift information
+
+🎨 Interface
+
+Dark cybersecurity-focused UI
+
+Responsive layout
+
+Interactive calibration
+
+Real-time monitoring
+
+Charts and visual feedback
+
+Animated interface elements
+
+🏗️ Architecture
+
+This project follows a monolithic application structure.
+
+The complete application runs as one backend service while individual responsibilities are kept in separate files and folders.
+
+Behavior-based-Auth-Hackathon/
 │
-├── models/                         # ML models and algorithms
-│   ├── behavioral_models.py        # Ensemble classifier implementation
-│   └── saved/{user_id}/            # Per-user trained models
-│       ├── model_gru.h5
-│       ├── model_autoencoder.h5
-│       └── sklearn_models.pkl
+├── app.py
+├── config.py
+├── requirements.txt
 │
-├── utils/                          # Utility modules
-│   ├── feature_extractor.py        # Behavioral feature extraction
-│   └── drift_detector.py           # Behavioral drift detection
+├── models/
+│   ├── behavioral_models.py
+│   └── saved/
+│       └── {user_id}/
+│           ├── model_gru.h5
+│           ├── model_autoencoder.h5
+│           └── sklearn_models.pkl
 │
-├── database/                       # Database management
-│   ├── db_manager.py               # SQLite database operations
-│   └── auth_system.db              # SQLite database file
+├── utils/
+│   ├── feature_extractor.py
+│   └── drift_detector.py
 │
-├── static/                         # Frontend assets
+├── database/
+│   ├── db_manager.py
+│   └── auth_system.db
+│
+├── static/
 │   ├── css/
-│   │   └── styles.css              # Modern dark theme styles
+│   │   └── styles.css
+│   │
 │   └── js/
-│       ├── login.js                # Authentication interface
-│       ├── calib.js                # Calibration process
-│       └── challenge.js            # Real-time monitoring dashboard
+│       ├── login.js
+│       ├── calib.js
+│       └── challenge.js
 │
-└── templates/                      # HTML templates
-    ├── login.html                  # Login and registration
-    ├── calib.html                  # Behavioral calibration
-    └── challenge.html              # Secure dashboard
-```
+└── templates/
+    ├── login.html
+    ├── calib.html
+    └── challenge.html
 
-## 🚀 Quick Start
+🔄 Project Workflow
 
-### Prerequisites
-- Python 3.8 and not more than 3.11
-- Node.js (for development tools, optional)
-- Modern web browser (Chrome, Firefox, Safari, Edge)
+The application follows this flow:
 
-### Installation
+User
+  ↓
+Login / Registration
+  ↓
+Primary Authentication
+  ↓
+Behavioral Calibration
+  ↓
+Typing + Mouse Data Collection
+  ↓
+Feature Extraction
+  ↓
+Behavioral Model Training
+  ↓
+User Behavioral Profile
+  ↓
+Active Session
+  ↓
+Continuous Behavioral Data Collection
+  ↓
+Feature Extraction
+  ↓
+ML Ensemble Prediction
+  ↓
+Authentication / Anomaly Score
+  ↓
+Drift Detection
+  ↓
+Security Decision
+  ↓
+Dashboard + Alert
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Magizharasi/Behavior_based_Auth
-   cd continuous-auth-backend
-   ```
+1. User Registration and Login
 
-2. **Create virtual environment**
-   ```bash
-   python -m venv venv
-   
-   # Windows
-   venv\Scripts\activate
-   
-   # macOS/Linux
-   source venv/bin/activate
-   ```
+The application starts with the login interface.
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+A user can create an account and authenticate using their credentials.
 
-4. **Set up environment variables**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
+The frontend handles the user interaction while the Flask application processes authentication requests.
 
-5. **Initialize the database**
-   ```bash
-   python -c "from app import create_app; app, socketio = create_app(); print('Database initialized!')"
-   ```
+2. Behavioral Calibration
 
-6. **Run the application**
-   ```bash
-   python run.py
-   ```
+After authentication, the user completes a calibration process.
 
-7. **Access the application**
-   - Open your browser to `http://localhost:5000`
-   - Create a new account or use demo credentials
-   - Complete the behavioral calibration process
-   - Experience real-time authentication monitoring
+Typing calibration
 
-## 📖 Usage Guide
+The application collects keyboard timing information to establish the user's normal typing pattern.
 
-### 1. User Registration & Login
-- Navigate to the login page
-- Create a new account with username, email, and secure password
-- Password strength is validated in real-time
-- Login with your credentials
+Mouse calibration
 
-### 2. Behavioral Calibration
-- **Typing Calibration**: Complete 5 typing passages to establish keystroke patterns
-- **Mouse Calibration**: Complete 4 interactive mouse exercises
-- The system analyzes timing, rhythm, pressure, and movement patterns
-- Calibration takes 5-10 minutes for optimal accuracy
+The application collects mouse movement and interaction data to establish the user's normal mouse behavior.
 
-### 3. Real-time Monitoring
-- Access the secure dashboard after calibration
-- Behavioral patterns are continuously monitored
-- Authentication scores update in real-time
-- Security alerts notify of potential threats
-- View behavioral analytics and drift analysis
+This information becomes the baseline behavioral profile.
 
-### 4. Dashboard Features
-- **Security Overview**: Real-time authentication status
-- **Behavioral Analytics**: Pattern visualization and trends
-- **Activity Log**: Comprehensive security event history
-- **Settings**: Customize sensitivity and alert preferences
-- **Drift Detection**: Monitor behavioral changes over time
+3. Feature Extraction
 
-## ⚙️ Configuration
+Raw input events are not directly sent to the machine learning models.
 
-### Environment Variables
-Create a `.env` file with the following variables:
+The system first transforms them into behavioral features.
 
-```env
-# Security
-SECRET_KEY=your-secret-key-here
-JWT_SECRET_KEY=your-jwt-secret-here
+Keyboard features
 
-# Database
+Examples include:
+
+Hold duration
+
+Flight duration
+
+Typing speed
+
+Rhythm
+
+Timing consistency
+
+Pattern variation
+
+Mouse features
+
+Examples include:
+
+Velocity
+
+Acceleration
+
+Movement distance
+
+Trajectory
+
+Click timing
+
+Navigation efficiency
+
+Feature extraction is handled separately so that the ML layer receives structured behavioral data.
+
+4. Model Training
+
+The extracted calibration data is used to build a behavioral profile for the user.
+
+The project combines multiple machine learning approaches:
+
+Behavioral Features
+        ↓
+ ┌───────────────────────────────┐
+ │        ML Ensemble            │
+ ├───────────────────────────────┤
+ │ GRU                           │
+ │ Autoencoder                   │
+ │ One-Class SVM                 │
+ │ Incremental k-NN              │
+ │ Passive-Aggressive            │
+ │ Isolation Forest              │
+ └───────────────────────────────┘
+        ↓
+Combined Behavioral Decision
+
+Per-user model artifacts are stored under the model directory.
+
+5. Continuous Monitoring
+
+Once the user enters the protected application, behavioral data continues to be collected.
+
+The system compares the current behavior with the established user profile.
+
+The purpose is to identify significant behavioral changes during an active session.
+
+6. Anomaly Detection
+
+Each behavioral observation is evaluated by the configured models.
+
+The system produces an authentication or anomaly assessment based on the observed behavior.
+
+A sequence of suspicious observations can trigger a security event.
+
+7. Drift Detection
+
+Human behavior naturally changes over time.
+
+The project therefore includes drift detection to distinguish normal behavioral changes from potentially suspicious activity.
+
+This helps reduce false positives when the user's behavior changes gradually.
+
+8. Dashboard
+
+The monitoring dashboard presents the current security state.
+
+It can display:
+
+Authentication status
+
+Behavioral score
+
+Security events
+
+Behavioral analytics
+
+Drift information
+
+Monitoring state
+
+📂 File Responsibilities
+
+app.py
+
+Main Flask application.
+
+Responsible for:
+
+Application startup
+
+HTTP routes
+
+Authentication flow
+
+Session handling
+
+Real-time communication
+
+Connecting frontend requests with backend logic
+
+config.py
+
+Central configuration.
+
+Contains settings for:
+
+Security
+
+Database
+
+Model paths
+
+Authentication thresholds
+
+Behavioral analysis
+
+Development environment
+
+models/behavioral_models.py
+
+Machine learning implementation.
+
+Responsible for:
+
+Model creation
+
+Model training
+
+Model prediction
+
+Ensemble behavior
+
+Saving and loading user models
+
+utils/feature_extractor.py
+
+Transforms raw keyboard and mouse events into behavioral features.
+
+utils/drift_detector.py
+
+Detects changes between established and recent behavioral patterns.
+
+database/db_manager.py
+
+Handles database operations such as:
+
+User records
+
+Authentication information
+
+Session-related data
+
+Security events
+
+templates/
+
+Server-rendered HTML pages.
+
+login.html
+    ↓
+Authentication interface
+
+calib.html
+    ↓
+Behavioral calibration
+
+challenge.html
+    ↓
+Secure monitoring dashboard
+
+static/js/
+
+Frontend interaction logic.
+
+login.js
+
+Handles the login and registration interface.
+
+calib.js
+
+Collects and manages behavioral calibration data.
+
+challenge.js
+
+Handles active-session monitoring and dashboard updates.
+
+static/css/styles.css
+
+Contains the application UI styling and responsive dark-theme design.
+
+📊 Behavioral Data
+
+Keystroke Dynamics
+
+The project uses timing-based keyboard information to establish a typing signature.
+
+Key measurements include:
+
+Hold time
+
+Flight time
+
+Typing speed
+
+Rhythm
+
+Timing variance
+
+Typing consistency
+
+Pause patterns
+
+Mouse Behavior
+
+The project uses interaction patterns such as:
+
+Movement speed
+
+Acceleration
+
+Cursor trajectory
+
+Click timing
+
+Navigation efficiency
+
+Target accuracy
+
+Scroll patterns
+
+These behavioral signals are combined instead of depending on a single input feature.
+
+⚙️ Configuration
+
+Create a local .env file and configure the application values required by your environment.
+
+Example:
+
+SECRET_KEY=your-secret-key
+JWT_SECRET_KEY=your-jwt-secret
+
 DATABASE_PATH=database/auth_system.db
 
-# Model Configuration
 MODELS_BASE_PATH=models/saved
+
 CONFIDENCE_THRESHOLD=0.7
 ANOMALY_THRESHOLD=0.8
 
-# Development
 DEBUG=True
 FLASK_ENV=development
-```
 
-### Model Parameters
-Adjust these in `config.py`:
+Never commit the real .env file.
 
-```python
-# Authentication Thresholds
-CONFIDENCE_THRESHOLD = 0.7          # Minimum confidence for authentication
-ANOMALY_SCORE_THRESHOLD = 0.8       # Threshold for anomaly detection
-CONSECUTIVE_ANOMALIES_LIMIT = 3      # Max consecutive anomalies before alert
+Use .env.example as the public configuration template.
 
-# Behavioral Analysis
-WINDOW_SIZE = 30                     # Analysis window in seconds
-MIN_CALIBRATION_TIME = 300           # Minimum calibration time (5 minutes)
-DRIFT_DETECTION_WINDOW = 100         # Window size for drift detection
+🚀 Getting Started
 
-# Model Training
-GRU_SEQUENCE_LENGTH = 50             # Sequence length for GRU model
-AUTOENCODER_ENCODING_DIM = 32        # Autoencoder compressed dimension
-```
+Prerequisites
 
-## 🔧 Development
+Python 3.8 - 3.11
 
-### Project Structure Details
+Modern web browser
 
-#### Backend Components
-- **`app.py`**: Main Flask application with WebSocket support
-- **`config.py`**: Centralized configuration management
-- **`database/db_manager.py`**: Database operations and user management
-- **`utils/feature_extractor.py`**: Behavioral feature extraction algorithms
-- **`utils/drift_detector.py`**: Statistical drift detection methods
-- **`models/behavioral_models.py`**: Machine learning model ensemble
+Git
 
-#### Frontend Components
-- **Modern CSS**: Dark theme with glassmorphism effects
-- **Responsive Design**: Mobile-first approach with breakpoints
-- **WebSocket Integration**: Real-time behavioral data streaming
-- **Chart.js Visualizations**: Interactive behavioral analytics
-- **Progressive Enhancement**: Works without JavaScript for basic functionality
+Node.js is optional and is only needed when frontend development tooling is used.
 
-### Adding New Features
+1. Clone the Repository
 
-#### New Behavioral Features
-1. Add feature extraction logic to `utils/feature_extractor.py`
-2. Update model training in `models/behavioral_models.py`
-3. Modify frontend data collection in JavaScript files
+git clone https://github.com/priyanshu130018/Behavior-based-Auth-Hackathon.git
+cd Behavior-based-Auth-Hackathon
 
-#### New ML Models
-1. Implement model class in `behavioral_models.py`
-2. Add to ensemble in `EnsembleBehavioralClassifier`
-3. Update training and prediction workflows
+2. Create Virtual Environment
 
-#### UI Enhancements
-1. Modify templates in `templates/`
-2. Update styles in `static/css/styles.css`
-3. Add JavaScript functionality in `static/js/`
+Windows
 
-### Testing
+python -m venv venv
+venv\Scripts\activate
 
-#### Manual Testing
-```bash
-# Run with debug mode
-DEBUG=True python run.py
+Linux / macOS
 
-# Test different user scenarios
-# 1. New user registration and calibration
-# 2. Existing user login and monitoring
-# 3. Behavioral drift simulation
-# 4. Anomaly detection testing
-```
+python -m venv venv
+source venv/bin/activate
 
-#### Security Testing
-- Test with different typing patterns
-- Simulate mouse behavior variations
-- Verify session management security
-- Test drift detection sensitivity
+3. Install Dependencies
 
-## 📊 Behavioral Features Analyzed
+pip install -r requirements.txt
 
-### Keystroke Dynamics
-- **Timing Features**: Hold time, flight time, typing speed
-- **Rhythm Analysis**: Consistency, bursts, pauses
-- **N-gram Patterns**: Digraph and trigraph timing
-- **Pressure Dynamics**: Key force variations (if supported)
-- **Typing Style**: Speed variance, error patterns
+4. Configure Environment
 
-### Mouse Behavior
-- **Movement Patterns**: Velocity, acceleration, jerk
-- **Click Dynamics**: Duration, pressure, timing
-- **Navigation Style**: Trajectory efficiency, curvature
-- **Behavioral Signatures**: Dwell time, scroll patterns
-- **Precision Metrics**: Target accuracy, movement smoothness
+Create:
 
-### Advanced Analytics
-- **Temporal Patterns**: Time-of-day behavior variations
-- **Context Awareness**: Application-specific patterns
-- **Stress Indicators**: Behavioral changes under pressure
-- **Device Adaptation**: Multi-device behavioral profiles
-- **Environmental Factors**: External influence detection
+.env
 
-## 🛡️ Security Features
+Copy the values from:
 
-### Authentication Layers
-1. **Primary Authentication**: Username/password login
-2. **Behavioral Verification**: Continuous pattern matching
-3. **Anomaly Detection**: Real-time threat identification
-4. **Drift Monitoring**: Behavioral change adaptation
-5. **Session Security**: Encrypted token management
+.env.example
 
-### Privacy Protection
-- **Local Processing**: Behavioral analysis on-device when possible
-- **Data Encryption**: All stored data is encrypted
-- **Minimal Storage**: Only essential features are retained
-- **User Control**: Complete data deletion capabilities
-- **Transparency**: Clear data usage policies
+and update them for your local environment.
 
-### Threat Detection
-- **Session Hijacking**: Detect unauthorized access attempts
-- **Credential Theft**: Identify behavior inconsistencies
-- **Insider Threats**: Monitor for behavioral anomalies
-- **Device Compromise**: Detect unusual input patterns
-- **Social Engineering**: Identify stressed/coerced behavior
+5. Initialize the Application
 
-## 🔍 Troubleshooting
+Initialize the database using the application setup flow provided by the project.
 
-### Common Issues
+6. Start the Application
 
-#### Installation Problems
-```bash
-# TensorFlow installation issues
-pip install tensorflow==2.13.0 --no-cache-dir
+python run.py
 
-# Socket.IO connection problems
-pip install python-socketio[client]==5.8.0
-```
+Open:
 
-#### Database Issues
-```bash
-# Reset database
-rm database/auth_system.db
-python -c "from app import create_app; app, socketio = create_app()"
-```
+http://localhost:5000
 
-#### Model Training Failures
-- Ensure sufficient calibration data (minimum 5 minutes)
-- Check feature extraction output for valid data
-- Verify model save directory permissions
-- Monitor memory usage during training
+🧪 Testing
 
-#### WebSocket Connection Issues
-- Check firewall settings for port 5000
-- Verify browser WebSocket support
-- Test with different browsers
-- Check network proxy configurations
+The project can be tested through the main user workflow:
 
-### Performance Optimization
+Registration
+    ↓
+Login
+    ↓
+Typing Calibration
+    ↓
+Mouse Calibration
+    ↓
+Behavioral Profile
+    ↓
+Protected Dashboard
+    ↓
+Continuous Monitoring
+    ↓
+Behavior Variation Testing
+    ↓
+Anomaly Detection
 
-#### Backend Performance
-- Use Redis for session storage in production
-- Implement model caching for faster predictions
-- Optimize database queries with indexing
-- Use background tasks for heavy processing
+Recommended scenarios include:
 
-#### Frontend Performance
-- Minimize JavaScript bundle size
-- Implement virtual scrolling for large datasets
-- Use Web Workers for intensive computations
-- Cache static assets with service workers
+New user registration
 
-#### Model Performance
-- Implement model quantization for faster inference
-- Use batch processing for multiple predictions
-- Cache feature extraction results
-- Optimize ensemble weights based on accuracy
+Existing user login
 
-## 🚀 Production Deployment
+Normal typing behavior
 
-### Environment Setup
-```bash
-# Production environment
-export FLASK_ENV=production
-export DEBUG=False
-export SECRET_KEY="your-production-secret"
+Different typing behavior
 
-# Database configuration
-export DATABASE_PATH="/secure/path/to/database.db"
+Normal mouse navigation
 
-# SSL/TLS configuration
-export SSL_CERT_PATH="/path/to/cert.pem"
-export SSL_KEY_PATH="/path/to/key.pem"
-```
+Different mouse behavior
 
-### Security Hardening
-- Enable HTTPS with valid SSL certificates
-- Implement rate limiting and DDoS protection
-- Use secure session configuration
-- Enable CSRF protection
-- Implement content security policies
-- Regular security audits and updates
+Behavioral drift
 
-### Scaling Considerations
-- Use load balancer for multiple instances
-- Implement database connection pooling
-- Use Redis for shared session storage
-- Consider microservices architecture for large deployments
-- Implement horizontal scaling for ML inference
+Repeated anomalies
 
-## 🤝 Contributing
+Session security
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+🔐 Security
 
-### Development Guidelines
-- Follow PEP 8 for Python code style
-- Use ESLint for JavaScript code consistency
-- Write comprehensive tests for new features
-- Update documentation for API changes
-- Ensure backward compatibility when possible
+The project is designed around multiple authentication layers:
 
-## 🔮 Future Enhancements
+Password Authentication
+        ↓
+Behavioral Verification
+        ↓
+Anomaly Detection
+        ↓
+Drift Monitoring
+        ↓
+Session Security
 
-### Planned Features
-- **Mobile Applications**: Native iOS and Android apps
-- **Biometric Integration**: Fingerprint and face recognition
-- **Voice Analysis**: Speech pattern authentication
-- **Advanced ML**: Deep learning and transformer models
-- **Cloud Integration**: AWS/Azure/GCP deployment options
-- **API Extensions**: RESTful API for third-party integration
+Important security practices:
 
-### Research Areas
-- **Federated Learning**: Privacy-preserving model training
-- **Adversarial Robustness**: Defense against spoofing attacks
-- **Cross-Device Learning**: Behavioral sync across devices
-- **Contextual Authentication**: Environment-aware security
-- **Quantum-Safe Cryptography**: Post-quantum security
+Keep secrets in environment variables
 
-## 🎯 Quick Demo
+Do not commit .env
 
-1. **Start the system**: `python app.py`
-2. **Open browser**: Navigate to `http://localhost:5000`
-3. **Register**: Create account with strong password
-4. **Calibrate**: Complete 10-minute behavioral training
-5. **Monitor**: Watch real-time authentication in dashboard
-6. **Test**: Try different typing/mouse patterns to see anomaly detection
+Do not commit database files containing local data
 
-*Thank you*
+Do not commit trained model artifacts unless intentionally versioned
+
+Use HTTPS in production
+
+Protect session data
+
+Review thresholds before production use
+
+🗃️ Local Files
+
+The following files/directories should generally remain local and should be excluded from Git:
+
+.env
+venv/
+__pycache__/
+*.pyc
+database/auth_system.db
+models/saved/
+logs/
+
+The repository should contain source code and configuration templates rather than personal user data or generated artifacts.
+
+🚀 Production Considerations
+
+For production deployment, consider:
+
+HTTPS
+
+Secure session configuration
+
+Rate limiting
+
+CSRF protection
+
+Content Security Policy
+
+Persistent session storage
+
+Database indexing
+
+Model caching
+
+Background processing for expensive ML operations
+
+Centralized monitoring and logging
+
+The current project is structured as a monolithic application. Scaling infrastructure can be introduced later without changing the core behavioral-analysis concepts.
+
+🔮 Future Improvements
+
+Better per-user behavioral model lifecycle
+
+More robust model evaluation
+
+Improved behavioral drift adaptation
+
+Persistent production session storage
+
+Better anomaly explanations
+
+Stronger test coverage
+
+Model performance monitoring
+
+Multi-device behavioral profiles
+
+Privacy-preserving learning
+
+Additional behavioral signals
+
+🤝 Contributing
+
+Create a feature branch:
+
+git checkout -b feature/your-feature
+
+Commit your changes:
+
+git add .
+git commit -m "Add your feature"
+
+Push the branch:
+
+git push origin feature/your-feature
+
+Then open a pull request.
+
+📄 License
+
+Add the project's chosen license before publishing a production release.
+
+👨‍💻 Author
+
+Priyanshu Ranjan Verma
+
+GitHub:
+
+https://github.com/priyanshu130018
+
+📌 Project Summary
+
+Behavior Based Continuous Authentication moves authentication beyond a single login event.
+
+Instead of asking only:
+
+"Did the correct user enter the password?"
+
+the system continuously evaluates:
+
+"Does the current behavior still match the established user profile?"
+
+By combining keystroke dynamics, mouse behavior, machine learning, anomaly detection, and drift analysis, the project provides an additional layer of continuous session security.
