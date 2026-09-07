@@ -520,7 +520,7 @@ Node.js is optional and is only needed when frontend development tooling is used
 
 1. Clone the Repository
 
-git clone https://github.com/priyanshu130018/Behavior-based-Auth-Hackathon.git
+git clone <your-repository-url>
 cd Behavior-based-Auth-Hackathon
 
 2. Create Virtual Environment
@@ -716,15 +716,11 @@ Then open a pull request.
 
 📄 License
 
-Add the project's chosen license before publishing a production release.
+No license file was provided in the original repository. Please select and add your project's chosen license file (e.g., MIT, Apache 2.0) before publishing a public or production release.
 
-👨‍💻 Author
+🤝 Credits & Acknowledgments
 
-Priyanshu Ranjan Verma
-
-GitHub:
-
-https://github.com/priyanshu130018
+This project is a derivative work based on the original [Behavior-based-Auth-Hackathon](https://github.com/priyanshu130018/Behavior-based-Auth-Hackathon) repository created by Priyanshu Ranjan Verma (`priyanshu130018`).
 
 📌 Project Summary
 
