@@ -462,7 +462,7 @@ Use `.env.example` as the public configuration template.
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/priyanshu130018/Behavior-based-Auth-Hackathon.git
 cd Behavior-based-Auth-Hackathon
 ```
 
